@@ -19,7 +19,7 @@ Given a customer's profile (age, driving experience, vehicle, history...), predi
 | 1 | _name_ | Data & Preprocessing | `notebooks/dev/01_data_preprocessing.ipynb` |
 | 2 | _name_ | Model Design & Regularization | `notebooks/dev/02_model_regularization.ipynb` |
 | 3 | _name_ | Hyperparameter Tuning & Evaluation | `notebooks/dev/03_tuning_evaluation.ipynb` |
-| 4 | _name_ | Save/Load, Inference & API | `notebooks/dev/04_inference_deployment.ipynb`, `app/`, `src/` |
+| 4 | _name_ | Save/Load, Inference & Repo | `notebooks/dev/04_save_load_inference.ipynb`, `src/` |
 
 ---
 
@@ -35,7 +35,6 @@ insurance-risk-scoring/
 │   ├── dev/              # one notebook per member (01–04)
 │   └── 00_final_pipeline.ipynb   # merged end-to-end notebook (final submission)
 ├── src/inference.py      # predict_risk() function
-├── app/app.py            # FastAPI app
 ├── reports/figures/      # plots used in the presentation
 ├── requirements.txt
 └── README.md
@@ -51,7 +50,7 @@ insurance-risk-scoring/
               ├──► 02 Model ──► baseline & regularized models
               └──► 03 Tuning ──► models/best_model.keras + metrics
                                       │
-                                      └──► 04 Inference ──► predict_risk() + FastAPI
+                                      └──► 04 Inference ──► predict_risk()
 ```
 
 ---
@@ -75,12 +74,6 @@ cd insurance-risk-scoring
 pip install -r requirements.txt
 ```
 
-**Run the API** (after `best_model.keras` and `preprocessor.pkl` exist):
-```bash
-uvicorn app.app:app --reload
-# open http://127.0.0.1:8000/docs
-```
-
 **Open in Colab:** File → Open notebook → GitHub tab → paste the repo URL.
 
 ---
@@ -92,7 +85,7 @@ uvicorn app.app:app --reload
 - [ ] Hyperparameter tuning (Keras Tuner)
 - [ ] Evaluation metrics (Precision, Recall, F1, ROC-AUC, Confusion Matrix)
 - [ ] Model saving & loading
-- [ ] Inference pipeline (function + FastAPI)
+- [ ] Inference pipeline (`predict_risk()` function)
 - [ ] Final merged notebook
 - [ ] Presentation
 
