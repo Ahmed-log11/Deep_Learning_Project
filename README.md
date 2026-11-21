@@ -16,17 +16,17 @@ Given a customer's profile (age, driving experience, vehicle, history...), predi
 
 | # | Member | Part | Notebook |
 |---|--------|------|----------|
-| 1 | _name_ | Data & Preprocessing | `notebooks/dev/01_data_preprocessing.ipynb` |
-| 2 | _name_ | Model Design & Regularization | `notebooks/dev/02_model_regularization.ipynb` |
-| 3 | _name_ | Hyperparameter Tuning & Evaluation | `notebooks/dev/03_tuning_evaluation.ipynb` |
-| 4 | _name_ | Save/Load, Inference & Repo | `notebooks/dev/04_save_load_inference.ipynb`, `src/` |
+| 1 | Abdulrhman | Data & Preprocessing | `notebooks/dev/01_data_preprocessing.ipynb` |
+| 2 | Skkinner | Model Design & Regularization | `notebooks/dev/02_model_regularization.ipynb` |
+| 3 | Sulaiman Allumaylim | Hyperparameter Tuning & Evaluation | `notebooks/dev/03_tuning_evaluation.ipynb` |
+| 4 | Ahmed Alluqmani | Save/Load, Inference & Final Notebook | `notebooks/dev/04_save_load_inference.ipynb`, `src/` |
 
 ---
 
 ## 🗂️ Repo Structure
 
 ```
-insurance-risk-scoring/
+Deep_Learning_Project/
 ├── data/
 │   ├── raw/              # original Kaggle CSV
 │   └── processed/        # X_train.npy, X_val.npy, X_test.npy, y_*.npy  (from notebook 01)
@@ -69,8 +69,8 @@ insurance-risk-scoring/
 ## 🚀 Quick Start
 
 ```bash
-git clone <repo-url>
-cd insurance-risk-scoring
+git clone https://github.com/Ahmed-log11/Deep_Learning_Project.git
+cd Deep_Learning_Project
 pip install -r requirements.txt
 ```
 
@@ -80,25 +80,30 @@ pip install -r requirements.txt
 
 ## ✅ Required Components Checklist
 
-- [ ] ANN model
-- [ ] Regularization (L2, Dropout, Early Stopping)
-- [ ] Hyperparameter tuning (Keras Tuner)
-- [ ] Evaluation metrics (Precision, Recall, F1, ROC-AUC, Confusion Matrix)
-- [ ] Model saving & loading
-- [ ] Inference pipeline (`predict_risk()` function)
-- [ ] Final merged notebook
-- [ ] Presentation
+- [x] ANN model
+- [x] Regularization (L2, Dropout, Early Stopping)
+- [x] Hyperparameter tuning (Keras Tuner)
+- [x] Evaluation metrics (Precision, Recall, F1, ROC-AUC, Confusion Matrix)
+- [x] Model saving & loading
+- [x] Inference pipeline (`predict_risk()` function)
+- [x] Final merged notebook (`notebooks/00_final_pipeline.ipynb`)
 
 ---
 
-## 📊 Results
-_To be filled after evaluation._
+## 📊 Results (test set, 1,223 customers, threshold 0.5)
 
 | Model | Precision | Recall | F1 | ROC-AUC |
 |-------|-----------|--------|----|---------|
-| Baseline ANN | | | | |
-| Regularized ANN | | | | |
-| Tuned ANN | | | | |
+| Baseline ANN | 0.644 | 0.740 | 0.689 | 0.862 |
+| Regularized ANN | 0.693 | 0.819 | 0.751 | 0.907 |
+| **Tuned ANN (final model)** | 0.669 | 0.835 | 0.743 | 0.903 |
+
+- **Final model:** the tuned ANN from notebook 03 (`models/best_model.keras`), chosen by the best **validation** AUC (0.939).
+- Regularization gave the main improvement. Tuning matched the regularized model on test but did not beat it (difference within noise).
 
 ## ⚠️ Limitations
-_To be filled._
+- 18.5% of rows were dropped because of missing values (claim rate unchanged, but less training data).
+- Fixed 0.5 threshold: high recall (83%) but more false alarms (157 of 842 non-claimers flagged).
+- Small dataset, one split, one seed: no cross-validation.
+- `RACE` and `GENDER` are used as features, which raises fairness / legal concerns for real insurance pricing.
+- `PAST_ACCIDENTS`, `SPEEDING_VIOLATIONS`, `DUIS` must be history *before* the policy, otherwise they leak the outcome; the dataset doesn't document this.

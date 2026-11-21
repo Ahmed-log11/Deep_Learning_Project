@@ -1,8 +1,8 @@
-numpy
-pandas
-scikit-learn
-matplotlib
-seaborn
-tensorflow
+numpy==2.4.6
+pandas==3.1.1
+scikit-learn==1.9.1   # must match the version preprocessor.pkl was saved with
+matplotlib==3.11.2
+seaborn==0.13.2
+tensorflow==2.21.0
 keras-tuner
 joblib
