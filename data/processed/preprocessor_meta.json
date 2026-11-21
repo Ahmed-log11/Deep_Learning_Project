@@ -1,0 +1,156 @@
+{
+  "seed": 42,
+  "target": "OUTCOME",
+  "id_column": "ID",
+  "missing_strategy": "drop",
+  "split": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "dropped_columns": [
+    "ID"
+  ],
+  "raw_input_columns": [
+    "AGE",
+    "GENDER",
+    "RACE",
+    "DRIVING_EXPERIENCE",
+    "EDUCATION",
+    "INCOME",
+    "CREDIT_SCORE",
+    "VEHICLE_OWNERSHIP",
+    "VEHICLE_YEAR",
+    "MARRIED",
+    "CHILDREN",
+    "POSTAL_CODE",
+    "ANNUAL_MILEAGE",
+    "VEHICLE_TYPE",
+    "SPEEDING_VIOLATIONS",
+    "DUIS",
+    "PAST_ACCIDENTS"
+  ],
+  "column_groups": {
+    "numeric": [
+      "CREDIT_SCORE",
+      "ANNUAL_MILEAGE",
+      "SPEEDING_VIOLATIONS",
+      "DUIS",
+      "PAST_ACCIDENTS"
+    ],
+    "ordinal": {
+      "AGE": [
+        "16-25",
+        "26-39",
+        "40-64",
+        "65+"
+      ],
+      "DRIVING_EXPERIENCE": [
+        "0-9y",
+        "10-19y",
+        "20-29y",
+        "30y+"
+      ],
+      "EDUCATION": [
+        "none",
+        "high school",
+        "university"
+      ],
+      "INCOME": [
+        "poverty",
+        "working class",
+        "middle class",
+        "upper class"
+      ],
+      "VEHICLE_YEAR": [
+        "before 2015",
+        "after 2015"
+      ]
+    },
+    "binary": [
+      "VEHICLE_OWNERSHIP",
+      "MARRIED",
+      "CHILDREN"
+    ],
+    "nominal": [
+      "GENDER",
+      "RACE",
+      "POSTAL_CODE",
+      "VEHICLE_TYPE"
+    ]
+  },
+  "allowed_values": {
+    "AGE": [
+      "16-25",
+      "26-39",
+      "40-64",
+      "65+"
+    ],
+    "DRIVING_EXPERIENCE": [
+      "0-9y",
+      "10-19y",
+      "20-29y",
+      "30y+"
+    ],
+    "EDUCATION": [
+      "high school",
+      "none",
+      "university"
+    ],
+    "INCOME": [
+      "middle class",
+      "poverty",
+      "upper class",
+      "working class"
+    ],
+    "VEHICLE_YEAR": [
+      "after 2015",
+      "before 2015"
+    ],
+    "GENDER": [
+      "female",
+      "male"
+    ],
+    "RACE": [
+      "majority",
+      "minority"
+    ],
+    "POSTAL_CODE": [
+      10238,
+      21217,
+      32765,
+      92101
+    ],
+    "VEHICLE_TYPE": [
+      "sedan",
+      "sports car"
+    ]
+  },
+  "input_notes": [
+    "predict_risk() input = ONE row with exactly `raw_input_columns` (no ID, no OUTCOME).",
+    "Text values are lower-case/trimmed as in `allowed_values`; POSTAL_CODE and 0/1 columns are integers.",
+    "Unknown categories are ignored by one-hot and mapped to -1 for ordinal columns."
+  ],
+  "n_features_after_encoding": 23,
+  "rows": {
+    "rows_raw": 10000,
+    "rows_after_standardisation": 10000,
+    "duplicates_removed": 0,
+    "rows_removed_missing": 1851,
+    "rows_removed_invalid": 0,
+    "rows_clean": 8149,
+    "rows_removed_total": 1851,
+    "train": 5703,
+    "val": 1223,
+    "test": 1223
+  },
+  "class_weight": {
+    "0": 0.7257571901247136,
+    "1": 1.6073844419391206
+  },
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.1",
+    "numpy": "2.4.6"
+  }
+}
