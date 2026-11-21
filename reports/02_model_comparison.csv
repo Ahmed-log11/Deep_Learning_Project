@@ -1,0 +1,5 @@
+Model,val_Accuracy,val_Precision,val_Recall,val_F1,val_ROC-AUC,train_AUC,AUC gap (train-val),min val_loss,final val_loss,epochs
+Baseline,0.825,0.6974,0.7743,0.7338,0.8888,0.988,0.0992,0.3215,0.6813,150
+L2 only,0.825,0.6701,0.8635,0.7546,0.915,0.9644,0.0494,0.3477,0.4285,150
+Dropout only,0.8389,0.7009,0.8425,0.7652,0.9188,0.9644,0.0457,0.3084,0.3664,150
+L2 + Dropout + EarlyStop,0.8585,0.743,0.8346,0.7862,0.9361,0.9374,0.0013,0.3297,0.3339,56
