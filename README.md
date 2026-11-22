@@ -17,7 +17,7 @@ Given a customer's profile (age, driving experience, vehicle, history...), predi
 | # | Member | Part | Notebook |
 |---|--------|------|----------|
 | 1 | Abdulrhman | Data & Preprocessing | `notebooks/dev/01_data_preprocessing.ipynb` |
-| 2 | Skkinner | Model Design & Regularization | `notebooks/dev/02_model_regularization.ipynb` |
+| 2 | Fahad & Hasan | Model Design & Regularization | `notebooks/dev/02_model_regularization.ipynb` |
 | 3 | Sulaiman Allumaylim | Hyperparameter Tuning & Evaluation | `notebooks/dev/03_tuning_evaluation.ipynb` |
 | 4 | Ahmed Alluqmani | Save/Load, Inference & Final Notebook | `notebooks/dev/04_save_load_inference.ipynb`, `src/` |
 
